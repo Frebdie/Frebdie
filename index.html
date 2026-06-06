@@ -1,10 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
+  <title>ASCII Name</title>
+
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: "Courier New", monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .ascii {
+      font-size: 16px;
+      white-space: pre;
+      border-right: 2px solid lime;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
-    <p>This is my first GitHub Pages website.</p>
+
+<div id="output" class="ascii"></div>
+
+<script>
+const nameArt = `
+
+   freddie randle was here
+`;
+
+let i = 0;
+const speed = 30;
+
+function typeWriter() {
+  if (i < nameArt.length) {
+    document.getElementById("output").innerHTML += nameArt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+typeWriter();
+</script>
+
 </body>
 </html>
